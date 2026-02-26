@@ -38,10 +38,10 @@ export class Tasks {
     this.value = '';
     input.value = '';
   }
-  //
-  // get title() {
-  //   return ;
-  // }
+
+   CompleteTask (id: string) {
+    this.tasks = this.tasks.filter(t => t.id !== id);
+  }
 
 
   get filterTasks() {

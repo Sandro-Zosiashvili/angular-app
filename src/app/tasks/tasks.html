@@ -13,7 +13,7 @@
       <ul>
         @for (task of filterTasks; track task.id) {
           <li>
-            <app-task [tasks]="task"/>
+            <app-task [tasks]="task"  (complete)="CompleteTask(task.id)" />
           </li>
         }
       </ul>

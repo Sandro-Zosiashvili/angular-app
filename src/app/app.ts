@@ -5,6 +5,7 @@ import {User} from './user/user';
 import {DUMMY_USERS} from './dummy-users';
 import {Tasks} from './tasks/tasks';
 import {Dummy_Tasks} from './Dummy_Tasks';
+import {Task} from './task/task';
 
 
 @Component({
