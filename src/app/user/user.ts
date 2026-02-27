@@ -13,6 +13,7 @@ export class User {
   @Input({required: true}) users!: UserType;
   @Input({required: true}) selected?: boolean;
   @Output() select = new EventEmitter();
+  @Output() hello = new EventEmitter();
 
 
   get imagePath() {

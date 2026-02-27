@@ -1,3 +1,8 @@
+@if(isAdding()) {
+  <!--    <input type="text" #taskInput  placeholder="add task..." (input)="onInput($event)"   />-->
+  <!--    <input (click)="addTask(taskInput)" type="submit" value="Add Task" />-->
+  <app-new-task   (close)="onClickClose()" />
+}
 <section id="tasks">
   <header>
     <h2>{{ name }}'s Tasks</h2>
@@ -5,10 +10,6 @@
       <Button (click)="openTaskAdder()">Add Task</Button>
     </menu>
   </header>
-  @if(onCLickTask()) {
-    <input type="text" #taskInput  placeholder="add task..." (input)="onInput($event)"   />
-    <input (click)="addTask(taskInput)" type="submit" value="Add Task" />
-  }
     @if (tasks) {
       <ul>
         @for (task of filterTasks; track task.id) {

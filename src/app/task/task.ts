@@ -11,9 +11,6 @@ export class Task {
   @Input() tasks!: TaskType;
   @Output() complete = new EventEmitter();
 
-
-
-
   completeTask() {
     this.complete.emit(this.tasks.id);
   }

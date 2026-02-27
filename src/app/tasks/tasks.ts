@@ -3,10 +3,11 @@ import {DUMMY_USERS} from '../dummy-users';
 // import {Task} from '../task/task';
 import {Dummy_Tasks} from '../Dummy_Tasks';
 import {Task} from '../task/task';
+import {NewTask} from './new-task/new-task';
 
 @Component({
   selector: 'app-tasks',
-  imports: [Task],
+  imports: [Task, NewTask],
   templateUrl: './tasks.html',
   styleUrl: './tasks.scss',
   standalone: true
@@ -17,31 +18,36 @@ export class Tasks {
   @Input({required: true}) value!: string;
   tasks = Dummy_Tasks;
 
-  onCLickTask = signal(false);
+  isAdding = signal(false);
 
   openTaskAdder() {
-    this.onCLickTask.set(!this.onCLickTask())
+    this.isAdding.set(!this.isAdding())
+  }
 
+  onClickClose() {
+    this.isAdding.set(false)
   }
-  onInput(e: Event) {
-     this.value  = (e.target as HTMLInputElement).value;
-    console.log(this.value);
-  }
-  addTask(input: HTMLInputElement) {
-    this.tasks.push({
-      id: Date.now().toString(),
-      userId: this.userId,
-      title: 'New Task',
-      summary: this.value,
-      dueDate: '2021-01-01'
-    })
-    this.value = '';
-    input.value = '';
-  }
+
+  // onInput(e: Event) {
+  //    this.value  = (e.target as HTMLInputElement).value;
+  //   console.log(this.value);
+  // }
+  // addTask(input: HTMLInputElement) {
+  //   this.tasks.push({
+  //     id: Date.now().toString(),
+  //     userId: this.userId,
+  //     title: 'New Task',
+  //     summary: this.value,
+  //     dueDate: '2021-01-01'
+  //   })
+  //   this.value = '';
+  //   input.value = '';
+  // }
 
    CompleteTask (id: string) {
     this.tasks = this.tasks.filter(t => t.id !== id);
   }
+
 
 
   get filterTasks() {
