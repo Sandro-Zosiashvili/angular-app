@@ -1,10 +1,13 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {UserType} from './user.model';
+import {Cardd} from '../shared/cardd/cardd';
 
 
 @Component({
   selector: 'app-user',
-  imports: [],
+  imports: [
+    Cardd
+  ],
   templateUrl: './user.html',
   styleUrl: './user.scss',
   standalone: true

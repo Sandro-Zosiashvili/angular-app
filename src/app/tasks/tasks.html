@@ -1,7 +1,5 @@
 @if(isAdding()) {
-  <!--    <input type="text" #taskInput  placeholder="add task..." (input)="onInput($event)"   />-->
-  <!--    <input (click)="addTask(taskInput)" type="submit" value="Add Task" />-->
-  <app-new-task   (close)="onClickClose()" />
+  <app-new-task   (close)="onClickClose()"  (add)="onAddTask($event)" />
 }
 <section id="tasks">
   <header>

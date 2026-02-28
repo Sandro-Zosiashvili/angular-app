@@ -2,7 +2,9 @@ import {Component, computed, EventEmitter, input, Input, Output, signal} from '@
 import {DUMMY_USERS} from '../dummy-users';
 // import {Task} from '../task/task';
 import {Dummy_Tasks} from '../Dummy_Tasks';
-import {Task} from '../task/task';
+import {NewTaskType} from './new-task/new-task.modal';
+import {TasksService} from './tasks.service';
+import {Task} from './task/task';
 import {NewTask} from './new-task/new-task';
 
 @Component({
@@ -13,6 +15,8 @@ import {NewTask} from './new-task/new-task';
   standalone: true
 })
 export class Tasks {
+  constructor(private tasksService: TasksService) {}
+
   @Input() name?: string;
   @Input({required: true}) userId!: string;
   @Input({required: true}) value!: string;
@@ -27,28 +31,15 @@ export class Tasks {
   onClickClose() {
     this.isAdding.set(false)
   }
-
-  // onInput(e: Event) {
-  //    this.value  = (e.target as HTMLInputElement).value;
-  //   console.log(this.value);
-  // }
-  // addTask(input: HTMLInputElement) {
-  //   this.tasks.push({
-  //     id: Date.now().toString(),
-  //     userId: this.userId,
-  //     title: 'New Task',
-  //     summary: this.value,
-  //     dueDate: '2021-01-01'
-  //   })
-  //   this.value = '';
-  //   input.value = '';
-  // }
-
    CompleteTask (id: string) {
     this.tasks = this.tasks.filter(t => t.id !== id);
   }
 
+  onAddTask(newTask: NewTaskType) {
+    this.tasksService.addTask(newTask, this.userId);
+    this.isAdding.set(false)
 
+  }
 
   get filterTasks() {
     return this.tasks.filter(t => t.userId === this.userId);
