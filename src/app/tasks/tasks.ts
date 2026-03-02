@@ -20,19 +20,22 @@ export class Tasks {
   @Input() name?: string;
   @Input({required: true}) userId!: string;
   @Input({required: true}) value!: string;
-  tasks = Dummy_Tasks;
 
   isAdding = signal(false);
 
   openTaskAdder() {
     this.isAdding.set(!this.isAdding())
   }
+  get tasks() {
+    return this.tasksService.getTasks();
+  }
 
   onClickClose() {
     this.isAdding.set(false)
   }
-   CompleteTask (id: string) {
-    this.tasks = this.tasks.filter(t => t.id !== id);
+
+  CompleteTask(id: string) {
+    this.tasksService.removeTask(id);
   }
 
   onAddTask(newTask: NewTaskType) {
@@ -42,6 +45,6 @@ export class Tasks {
   }
 
   get filterTasks() {
-    return this.tasks.filter(t => t.userId === this.userId);
+    return this.tasksService.filterTasks(this.userId);
   }
 }

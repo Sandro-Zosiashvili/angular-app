@@ -10,6 +10,7 @@ export class TasksService {
   getTasks() {
     return this.tasks;
   }
+
   getTask(id: string) {
     return this.tasks.find(t => t.id === id);
   }
@@ -28,6 +29,10 @@ export class TasksService {
 
   removeTask(id: string) {
     this.tasks = this.tasks.filter(t => t.id !== id);
+  }
+
+  filterTasks(userId: string) {
+    return this.tasks.filter(t => t.userId === userId);
   }
 
 
