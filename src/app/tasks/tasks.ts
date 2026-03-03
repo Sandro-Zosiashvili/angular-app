@@ -12,7 +12,7 @@ import {NewTask} from './new-task/new-task';
   imports: [Task, NewTask],
   templateUrl: './tasks.html',
   styleUrl: './tasks.scss',
-  // standalone: true,
+  standalone: true,
 })
 export class Tasks {
   constructor(private tasksService: TasksService) {}

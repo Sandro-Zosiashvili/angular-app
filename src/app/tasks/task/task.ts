@@ -13,7 +13,7 @@ import {TasksService} from '../tasks.service';
   ],
   templateUrl: './task.html',
   styleUrl: './task.scss',
-  // standalone: true,
+  standalone: true,
 })
 export class Task {
   @Input() tasks!: TaskType;

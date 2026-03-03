@@ -8,10 +8,9 @@ import {Tasks} from './tasks/tasks';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, HeaderComponent, User, Tasks],
   templateUrl: './app.html',
   styleUrl: './app.scss',
-  standalone: true,
+  standalone: false,
 })
 export class App {
   users = DUMMY_USERS;

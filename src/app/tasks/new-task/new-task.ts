@@ -9,7 +9,7 @@ import {TasksService} from '../tasks.service';
   imports: [FormsModule],
   templateUrl: './new-task.html',
   styleUrl: './new-task.scss',
-  // standalone: true,
+  standalone: true,
 })
 export class NewTask {
   constructor(private tasksService: TasksService) {}
