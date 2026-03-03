@@ -2,20 +2,24 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {Dummy_Tasks} from '../../Dummy_Tasks';
 import {NewTaskType} from './new-task.modal';
+import {TasksService} from '../tasks.service';
 
 @Component({
   selector: 'app-new-task',
   imports: [FormsModule],
   templateUrl: './new-task.html',
   styleUrl: './new-task.scss',
+  // standalone: true,
 })
 export class NewTask {
+  constructor(private tasksService: TasksService) {}
+
   @Output() close = new EventEmitter();
-  @Output() add = new EventEmitter<NewTaskType>();
   @Input() userId!: string;
   enteredTitle = '';
   enteredSummary = '';
   enteredDueDate = '';
+
 
 
   onClose() {
@@ -23,11 +27,13 @@ export class NewTask {
   }
 
   onSubmit() {
-    this.add.emit({
+    console.log(this.userId)
+    this.tasksService.addTask({
       title: this.enteredTitle,
       summary: this.enteredSummary,
       dueDate: this.enteredDueDate
-    })
+    }, this.userId)
+    this.close.emit();
   }
 
 }

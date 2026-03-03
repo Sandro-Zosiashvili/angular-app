@@ -12,7 +12,7 @@ import {NewTask} from './new-task/new-task';
   imports: [Task, NewTask],
   templateUrl: './tasks.html',
   styleUrl: './tasks.scss',
-  standalone: true
+  // standalone: true,
 })
 export class Tasks {
   constructor(private tasksService: TasksService) {}
@@ -32,16 +32,6 @@ export class Tasks {
 
   onClickClose() {
     this.isAdding.set(false)
-  }
-
-  CompleteTask(id: string) {
-    this.tasksService.removeTask(id);
-  }
-
-  onAddTask(newTask: NewTaskType) {
-    this.tasksService.addTask(newTask, this.userId);
-    this.isAdding.set(false)
-
   }
 
   get filterTasks() {
