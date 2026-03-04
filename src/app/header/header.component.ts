@@ -4,7 +4,7 @@ import {DUMMY_USERS} from '../dummy-users';
 @Component ({
   selector: "app-header",
   templateUrl: `./header.component.html`,
-  standalone: true,
+  standalone: false,
   styleUrls: ["./header.component.scss"],
 })
 export class HeaderComponent {

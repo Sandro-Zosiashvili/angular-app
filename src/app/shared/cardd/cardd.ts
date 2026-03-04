@@ -2,10 +2,8 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-cardd',
-  imports: [],
   templateUrl: './cardd.html',
   styleUrl: './cardd.scss',
+  standalone: false,
 })
-export class Cardd {
-
-}
+export class Cardd {}

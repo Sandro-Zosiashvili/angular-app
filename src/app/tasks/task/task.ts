@@ -7,13 +7,9 @@ import {TasksService} from '../tasks.service';
 
 @Component({
   selector: 'app-task',
-  imports: [
-    Cardd,
-    DatePipe
-  ],
   templateUrl: './task.html',
   styleUrl: './task.scss',
-  standalone: true,
+  standalone: false,
 })
 export class Task {
   @Input() tasks!: TaskType;

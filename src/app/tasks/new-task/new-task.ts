@@ -6,10 +6,9 @@ import {TasksService} from '../tasks.service';
 
 @Component({
   selector: 'app-new-task',
-  imports: [FormsModule],
   templateUrl: './new-task.html',
   styleUrl: './new-task.scss',
-  standalone: true,
+  standalone: false,
 })
 export class NewTask {
   constructor(private tasksService: TasksService) {}

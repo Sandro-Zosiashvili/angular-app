@@ -5,12 +5,9 @@ import {Cardd} from '../shared/cardd/cardd';
 
 @Component({
   selector: 'app-user',
-  imports: [
-    Cardd
-  ],
   templateUrl: './user.html',
   styleUrl: './user.scss',
-  standalone: true
+  standalone: false
 })
 export class User {
   @Input({required: true}) users!: UserType;

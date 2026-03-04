@@ -9,10 +9,9 @@ import {NewTask} from './new-task/new-task';
 
 @Component({
   selector: 'app-tasks',
-  imports: [Task, NewTask],
   templateUrl: './tasks.html',
   styleUrl: './tasks.scss',
-  standalone: true,
+  standalone: false,
 })
 export class Tasks {
   constructor(private tasksService: TasksService) {}
