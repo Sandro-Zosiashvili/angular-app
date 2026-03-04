@@ -10,8 +10,8 @@ import {BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
   declarations: [App],
-  imports: [BrowserModule, RouterOutlet, HeaderComponent, User, Tasks],
   bootstrap: [App],
+  imports: [BrowserModule, RouterOutlet, HeaderComponent, User, Tasks],
 
 })
 export class AppModule { }
